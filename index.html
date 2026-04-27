@@ -1,0 +1,154 @@
+<!DOCTYPE html><html lang="en" translate="no" dir="ltr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loup Garou</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono&display=swap" rel="stylesheet"><style>
+:root{
+--primary-color:#00FFFF;--secondary-color:#7FFFD4;--dark-bg-1:#0f172a;--dark-bg-2:#1e293b;--text-color:#cbd5e1;--text-light:#f1f5f9;--shadow-color:rgba(0,255,255,.2);--spotlight-color:rgba(0,255,255,.15)}
+body{font-family:Poppins,sans-serif;background:var(--dark-bg-1);color:var(--text-color);margin:0;text-align:center;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at var(--x,50%) var(--y,50%),var(--spotlight-color) 0%,transparent 20%);z-index:999}
+.profile-pic{margin-top: 30px;width:160px;height:160px;border-radius:50%;border:5px solid var(--primary-color);object-fit:cover;transition:.4s}
+.profile-pic:hover{transform:scale(1.1);box-shadow:0 0 30px var(--primary-color)}
+h1{position:fixed;top:20px;left:35px;z-index:1000;font-family:Roboto Mono,monospace;font-size:2.8em;color:var(--text-light);text-shadow:0 0 10px var(--primary-color)}
+.bio{position:fixed;top:280px;left:36px;z-index:1000;max-width:600px;margin:10px auto 25px}
+.social-links{position:fixed;top:490px;left:74px;z-index:1000;display:flex;justify-content:center;gap:30px}
+.social-links a{font-size:2.2em;color:var(--secondary-color)}
+#buttons{position:fixed;top:360px;left:27px;z-index:1000;outline: none;display: none;justify-content:center;gap:10px;margin:30px 0}
+.action-btn{border:2px solid var(--secondary-color);background:transparent;color:var(--secondary-color);width:150px;height:40px;border-radius:50px;cursor:pointer;font-weight:bold}
+.action-btn:hover{background:var(--secondary-color);color:var(--dark-bg-1)}
+#login-btn{position:fixed;top:30px;left:15px;z-index:1000;border:2px solid var(--primary-color);background:transparent;color:var(--primary-color);width:150px;height:40px;border-radius:50px;cursor:pointer;font-weight:bold}
+#login-btn:hover{background:var(--primary-color);color:var(--dark-bg-1)}
+#auction-btn{position:fixed;top:80px;left:15px;z-index:1000;border:2px solid var(--primary-color);background:transparent;color:var(--primary-color);width:150px;height:40px;border-radius:50px;cursor:pointer;font-weight:bold}
+#auction-btn:hover{background:var(--primary-color);color:var(--dark-bg-1)}
+#feed-btn{position:fixed;top:180px;left:15px;z-index:1000;border:2px solid var(--primary-color);background:transparent;color:var(--primary-color);width:150px;height:40px;border-radius:50px;cursor:pointer;font-weight:bold}
+#feed-btn:hover{background:var(--primary-color);color:var(--dark-bg-1)}
+#market-btn{position:fixed;top:130px;left:15px;z-index:1000;border:2px solid var(--primary-color);background:transparent;color:var(--primary-color);width:150px;height:40px;border-radius:50px;cursor:pointer;font-weight:bold}
+#market-btn:hover{background:var(--primary-color);color:var(--dark-bg-1)}
+
+        
+.fa-heart.liked{color:#ff4757}
+footer{position:fixed;bottom:10px;left:104px;z-index:1000;margin:30px 0;color:#888}
+#share-icon{outline: none;position:fixed;top:15px;right:15px;background:transparent;border:none;color:var(--secondary-color);font-size:1.6em;cursor:pointer;z-index:1000}
+#share-icon:hover{color:var(--primary-color)}
+            .download-area { text-align: center; margin-top: 20px; }  
+             .download-btn {  
+                     position:fixed;top:110px;left:10px;z-index:1000;
+                     outline: none;
+        display: inline-flex;  
+        align-items: center;  
+        gap: 15px;  
+        background: black; 
+        color: aqua;  
+        padding: 8px 80px;  
+        font-size: 1.2em;  
+        font-weight: bold;  
+        text-decoration: none;  
+        border-radius: 50px;  
+        transition: transform 0.3s, box-shadow 0.3s;  
+    }  
+ .download-btn:hover {  
+        transform: scale(1.05);  
+        box-shadow: 0 0 25px var(--primary-color);  
+    }  
+    .app-icon {  
+        position:fixed;top:20px;left:20px;z-index:1000;
+        width: 80px; height: 80px;  
+        border-radius: 20px; 
+        border:solid aqua 2px;    
+         
+    }  
+               .gallery-container {
+            position:fixed;
+            top:195px;           
+            width: 100%;
+            overflow-x: auto;
+            display: flex;
+            gap: 12px;
+            padding: 10px 0 20px 0;
+            margin-bottom: 30px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--aqua-accent) transparent;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Custom Scrollbar for Chrome/Safari */
+        .gallery-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        .gallery-container::-webkit-scrollbar-thumb {
+            background: var(--aqua-accent);
+            border-radius: 10px;
+        }
+
+        .screenshot {
+            flex: 0 0 103px; /* Fixed width for each screenshot */
+            height: 240px;
+            background-color: #233554;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot:hover {
+            transform: scale(1.02);
+        }
+
+        #name{
+            position:fixed;
+                top:30px;
+                left:120px;
+           color:aqua;
+           font-size: 20px;                
+        }
+
+
+@keyframes aquaMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+</style></head>
+<body>
+   
+                   <!-- Share Icon -->
+                   <div class="download-area">
+                <img src="icon.png" alt="Game Icon" class="app-icon">  
+                <p id="name"><b>Loup Garou</b></p>
+                <a href="loup_garou.apk" download class="download-btn">  
+                 <span>Download APK</span>  
+                <i class="fa-brands fa-android"></i>  
+            </a>  
+            </div>
+        <p style="width: 96%; position:fixed;left:6px; top: 150px;font-size: 12px; ">Experience the latest features and improvements. Download the official APK directly to your device.</p>
+
+        <div class="gallery-container">
+            <!-- Replace 'screen1.png', 'screen2.png', etc. with your actual file names -->
+            <img src="screen1.png" alt="Screenshot 1" class="screenshot">
+            <img src="screen2.png" alt="Screenshot 2" class="screenshot" >
+            <img src="screen3.png" alt="Screenshot 3" class="screenshot" >
+            <img src="screen4.png" alt="Screenshot 4" class="screenshot" >
+            <img src="screen5.png" alt="Screenshot 5" class="screenshot" >
+        </div>
+
+<div class="social-links">
+<a href="https://instagram.com/4b.d.x90.u" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://facebook.com/xabdou.600932"><i class="fab fa-facebook"></i></a>
+<a href="https://wa.me/+213558510699"><i class="fab fa-whatsapp"></i></a>
+<a href="https://t.me/ST_Abdou"><i class="fab fa-telegram"></i></a>
+</div><div id="buttons">
+        </div>
+            <footer>© 2026 - Abdou Henni</footer>
+        
+        
+        <!-- Firebase -->
+        <script type="module">
+        
+
+     
+</script>
+            <script>
+document.addEventListener('mousemove',e=>{document.body.style.setProperty('--x',e.clientX+'px');document.body.style.setProperty('--y',e.clientY+'px')});
+</script></body>
+</html>
